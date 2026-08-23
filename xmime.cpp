@@ -225,6 +225,12 @@ static void _appendMimeForFileTypes(QList<QString> *pListResult, const QSet<XBin
     if (stFT.contains(XBinary::FT_WIM)) {
         _appendUnique(pListResult, "application/x-ms-wim");
     }
+    if (stFT.contains(XBinary::FT_ARX)) {
+        _appendUnique(pListResult, "application/x-lzh-compressed");
+    }
+    if (stFT.contains(XBinary::FT_SAR)) {
+        _appendUnique(pListResult, "application/x-lzh-compressed");
+    }
     if (stFT.contains(XBinary::FT_ZOO)) {
         _appendUnique(pListResult, "application/x-zoo");
     }
