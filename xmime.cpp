@@ -175,8 +175,7 @@ static void _appendMimeForFileTypes(QList<QString> *pListResult, const QSet<XBin
         _appendUnique(pListResult, "application/x-dosexec");
     } else if (stFT.contains(XBinary::FT_ELF32) || stFT.contains(XBinary::FT_ELF64) || stFT.contains(XBinary::FT_ELF)) {
         _appendUnique(pListResult, _elfMimeForType(pDevice));
-    } else if (stFT.contains(XBinary::FT_MACHO32) || stFT.contains(XBinary::FT_MACHO64) || stFT.contains(XBinary::FT_MACHO) ||
-               stFT.contains(XBinary::FT_MACHOFAT)) {
+    } else if (stFT.contains(XBinary::FT_MACHO32) || stFT.contains(XBinary::FT_MACHO64) || stFT.contains(XBinary::FT_MACHO) || stFT.contains(XBinary::FT_MACHOFAT)) {
         _appendUnique(pListResult, "application/x-mach-binary");
     }
 
@@ -403,8 +402,8 @@ QList<QString> XMIME::getTypes(QIODevice *pDevice, bool bIsAll)
     // Generic base type - LAST, so a recognized format never gets a spurious octet-stream.
     // bIsAll == false: added only when nothing specific matched.
     // bIsAll == true : always appended in addition to the specific types.
-    bool bIsText = stFT.contains(XBinary::FT_TEXT) || stFT.contains(XBinary::FT_PLAINTEXT) || stFT.contains(XBinary::FT_UTF8) ||
-                   stFT.contains(XBinary::FT_UNICODE) || stFT.contains(XBinary::FT_UNICODE_BE) || stFT.contains(XBinary::FT_UNICODE_LE);
+    bool bIsText = stFT.contains(XBinary::FT_TEXT) || stFT.contains(XBinary::FT_PLAINTEXT) || stFT.contains(XBinary::FT_UTF8) || stFT.contains(XBinary::FT_UNICODE) ||
+                   stFT.contains(XBinary::FT_UNICODE_BE) || stFT.contains(XBinary::FT_UNICODE_LE);
 
     if (listResult.isEmpty() || bIsAll) {
         if (bIsText) {
