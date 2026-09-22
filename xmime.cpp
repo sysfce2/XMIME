@@ -20,8 +20,6 @@
  */
 #include "xmime.h"
 
-#include <QPointer>
-
 #include "xformats.h"
 #include "xelf.h"
 
@@ -373,7 +371,7 @@ QList<QString> XMIME::getTypes(QIODevice *pDevice, bool bIsAll)
         return listResult;
     }
 
-    QPointer<QIODevice> pDeviceGuard = pDevice;
+    QIODevice *pDeviceGuard = pDevice;
 
     // Concrete file-type set (the tested detector the scan engine itself uses).
     QSet<XBinary::FT> stFT = XFormats::getFileTypes(pDevice, XBinary::FT_FLAG_FORMATS);
